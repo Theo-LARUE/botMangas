@@ -9,11 +9,11 @@ const getToken = () => {
     .post(
       "https://api.mangacollec.com/oauth/token",
       {
-        client_id: process.env["MANGACOLLEC_CLIENT_ID"],
-        client_secret: process.env["MANGACOLLEC_CLIENT_SECRET"],
+        client_id: process.env.MANGACOLLEC_CLIENT_ID,
+        client_secret: process.env.MANGACOLLEC_CLIENT_SECRET,
         grant_type: "password",
-        username: process.env["MANGACOLLEC_USERNAME"],
-        password: process.env["MANGACOLLEC_PASSWORD"],
+        username: process.env.MANGACOLLEC_USERNAME,
+        password: process.env.MANGACOLLEC_PASSWORD,
       },
       {
         headers: {
@@ -47,14 +47,14 @@ const getCollection = (token) => {
 
 // function to bind Twilio's Token
 function send_notification(message) {
-  const accountSid = process.env["TWILIO_ACCOUNT_SID"];
-  const authToken = process.env["TWILIO_AUTH_TOKEN"];
+  const accountSid = process.env.TWILIO_ACCOUNT_SID;
+  const authToken = process.env.TWILIO_AUTH_TOKEN;
   const client = require("twilio")(accountSid, authToken);
 
   client.messages.create({
     body: message,
-    from: process.env["TWILIO_PHONE_NUMBER"],
-    to: process.env["PERSONNAL_PHONE_NUMBER"],
+    from: process.env.TWILIO_PHONE_NUMBER,
+    to: process.env.PERSONNAL_PHONE_NUMBER,
   });
 }
 
