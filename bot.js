@@ -88,7 +88,9 @@ async function check_releases() {
           .map((item) => item.title + " - Tome " + item.number)
           .join("\n")}`
       )
-    : console.log("Aucune sortie de tome disponible aujourd'hui");
+    : console.log(
+        "Malheureusement, aucune sortie de tome disponible aujourd'hui"
+      );
 }
 
 // console.log(releasedMangas);
